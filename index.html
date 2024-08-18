@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ข้อมูลติดต่อ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        #popup {
+            position: fixed;
+            bottom: -300px;
+            right: 20px;
+            width: 300px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        #popup-header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+        }
+        #popup-content {
+            padding: 10px;
+        }
+        .button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            text-align: left;
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        #show-popup {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div id="popup">
+        <div id="popup-header">ข้อมูลติดต่อ</div>
+        <div id="popup-content">
+            <button class="button" onclick="openLink('https://line.me/ti/p/@193kwgkf')">
+                <img src="https://i.pinimg.com/236x/98/06/19/98061950aa7b4f33b6d3fa083511e090.jpg" alt="LINE" class="icon"> แชทผ่าน LINE
+            </button>
+            <button class="button" onclick="openLink('https://www.google.com/maps/place/%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B8%AB%E0%B8%99%E0%B8%AD%E0%B8%87%E0%B8%88%E0%B8%AD%E0%B8%81%E0%B8%A7%E0%B8%B4%E0%B8%97%E0%B8%A2%E0%B8%B2/@12.937355,99.96946,15z/data=!4m6!3m5!1s0x30fd1f0f45a90f9f:0x5a5ecfe8c2b84834!8m2!3d12.9373549!4d99.9694595!16s%2Fg%2F11gsmvygvs?hl=th&entry=ttu')">
+                <img src="https://png.pngtree.com/png-clipart/20230916/original/pngtree-google-map-icon-vector-png-image_12256715.png" alt="Map" class="icon"> ดูแผนที่
+            </button>
+            <button class="button" onclick="openLink('https://www.facebook.com/NCWittaya')">
+                <img src="https://i.pinimg.com/564x/b2/ef/68/b2ef689d1f387dfc949d0f63c3865441.jpg" alt="Facebook" class="icon"> เฟสบุ๊ค
+            </button>
+            <button class="button" onclick="openLink('URL_FORM')">
+                <img src="URL_ICON_FORM" alt="Form" class="icon"> แบบฟอร์ม
+            </button>
+        </div>
+    </div>
+
+    <div id="show-popup">+</div>
+
+    <script>
+        var popup = document.getElementById('popup');
+        var showPopupButton = document.getElementById('show-popup');
+
+        function showPopup() {
+            popup.style.bottom = '20px';
+            showPopupButton.style.display = 'none';
+        }
+
+        function hidePopup() {
+            popup.style.bottom = '-300px';
+            showPopupButton.style.display = 'block';
+        }
+
+        function openLink(url) {
+            window.open(url, '_blank');
+        }
+
+        showPopupButton.addEventListener('mouseover', showPopup);
+        showPopupButton.addEventListener('mouseout', hidePopup);
+        popup.addEventListener('mouseover', showPopup);
+        popup.addEventListener('mouseout', hidePopup);
+    </script>
+</body>
+</html>
