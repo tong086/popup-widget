@@ -1,50 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="th">
 <head>
+    <base target="_top">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ข้อมูลติดต่อ</title>
+    <title>ติดต่อ</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Kanit', sans-serif;
             margin: 0;
             padding: 0;
         }
         #popup {
             position: fixed;
-            bottom: -300px;
+            bottom: -200px;
             right: 20px;
-            width: 100px;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            border-radius: 10px;
+            width: 60px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 30px;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            z-index: 1000;
         }
         #popup-header {
             background-color: #4CAF50;
             color: white;
-            padding: 10px;
+            padding: 8px;
+            font-size: 12px;
+            font-weight: bold;
+            text-align: center;
         }
         #popup-content {
-            padding: 10px;
+            padding: 10px 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .button {
-            display: block;
-            width: 80%;
-            padding: 10px;
+            width: 44px;
+            height: 44px;
             margin-bottom: 10px;
-            text-align: left;
-            background-color: #f0f0f0;
+            background-color: #f8f8f8;
             border: none;
-            border-radius: 5px;
+            border-radius: 50%;
             cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
         .icon {
-            width: 50px;
-            height: 50px;
-            margin-right: 5px;
-            vertical-align: middle;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
         }
         #show-popup {
             position: fixed;
@@ -59,26 +74,32 @@
             line-height: 50px;
             font-size: 24px;
             cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
             z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        #show-popup:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="popup">
         <div id="popup-header">ติดต่อ</div>
         <div id="popup-content">
-            <button class="button" onclick="openLink('https://line.me/ti/p/@193kwgkf')">
+            <button class="button" onclick="openLink('https://line.me/ti/p/@193kwgkf')" title="LINE">
                 <img src="https://i.pinimg.com/236x/98/06/19/98061950aa7b4f33b6d3fa083511e090.jpg" alt="LINE" class="icon">
             </button>
-            <button class="button" onclick="openLink('https://www.google.com/maps/place/%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B8%AB%E0%B8%99%E0%B8%AD%E0%B8%87%E0%B8%88%E0%B8%AD%E0%B8%81%E0%B8%A7%E0%B8%B4%E0%B8%97%E0%B8%A2%E0%B8%B2/@12.937355,99.96946,15z/data=!4m6!3m5!1s0x30fd1f0f45a90f9f:0x5a5ecfe8c2b84834!8m2!3d12.9373549!4d99.9694595!16s%2Fg%2F11gsmvygvs?hl=th&entry=ttu')">
+            <button class="button" onclick="openLink('https://www.google.com/maps/place/%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B8%AB%E0%B8%99%E0%B8%AD%E0%B8%87%E0%B8%88%E0%B8%AD%E0%B8%81%E0%B8%A7%E0%B8%B4%E0%B8%97%E0%B8%A2%E0%B8%B2/@12.937355,99.96946,15z/data=!4m6!3m5!1s0x30fd1f0f45a90f9f:0x5a5ecfe8c2b84834!8m2!3d12.9373549!4d99.9694595!16s%2Fg%2F11gsmvygvs?hl=th&entry=ttu')" title="แผนที่">
                 <img src="https://png.pngtree.com/png-clipart/20230916/original/pngtree-google-map-icon-vector-png-image_12256715.png" alt="Map" class="icon">
             </button>
-            <button class="button" onclick="openLink('https://www.facebook.com/NCWittaya')">
+            <button class="button" onclick="openLink('https://www.facebook.com/NCWittaya')" title="Facebook">
                 <img src="https://i.pinimg.com/564x/b2/ef/68/b2ef689d1f387dfc949d0f63c3865441.jpg" alt="Facebook" class="icon">
             </button>
-            <button class="button" onclick="openLink('URL_FORM')">
-                <img src="URL_ICON_FORM" alt="Form" class="icon">
+            <button class="button" onclick="openLink('https://m.me/524538257574934')" title="messenger">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Facebook_Messenger_logo_2020.svg/640px-Facebook_Messenger_logo_2020.svg.png" alt="Form" class="icon">
             </button>
         </div>
     </div>
@@ -88,25 +109,33 @@
     <script>
         var popup = document.getElementById('popup');
         var showPopupButton = document.getElementById('show-popup');
+        var isPopupVisible = false;
+
+        function togglePopup() {
+            if (isPopupVisible) {
+                hidePopup();
+            } else {
+                showPopup();
+            }
+        }
 
         function showPopup() {
-            popup.style.bottom = '20px';
-            showPopupButton.style.display = 'none';
+            popup.style.bottom = '80px';
+            showPopupButton.innerHTML = '&times;';
+            isPopupVisible = true;
         }
 
         function hidePopup() {
-            popup.style.bottom = '-300px';
-            showPopupButton.style.display = 'block';
+            popup.style.bottom = '-200px';
+            showPopupButton.innerHTML = '+';
+            isPopupVisible = false;
         }
 
         function openLink(url) {
             window.open(url, '_blank');
         }
 
-        showPopupButton.addEventListener('mouseover', showPopup);
-        showPopupButton.addEventListener('mouseout', hidePopup);
-        popup.addEventListener('mouseover', showPopup);
-        popup.addEventListener('mouseout', hidePopup);
+        showPopupButton.addEventListener('click', togglePopup);
     </script>
 </body>
 </html>
